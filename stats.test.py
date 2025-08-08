@@ -27,6 +27,12 @@ class StatsTest(unittest.TestCase):
     self.assertAlmostEqual(computedStats["avg"], 2.0, delta=epsilon)
     self.assertAlmostEqual(computedStats["max"], 3.0, delta=epsilon)
     self.assertAlmostEqual(computedStats["min"], 1.0, delta=epsilon)
+  
+  def test_absurd_value_input(self):
+    computedStats = statistics.calculateStats([1.0, 2.0, 1e100])
+    self.assertTrue(math.isnan(computedStats["avg"]))
+    self.assertTrue(math.isnan(computedStats["max"]))
+    self.assertTrue(math.isnan(computedStats["min"]))
 
 
 if __name__ == "__main__":  # pragma: no cover
