@@ -2,6 +2,7 @@ import math
 
 
 def calculateStats(numbers):
+  numbers = [x for x in numbers if not math.isnan(x)]
   if not numbers:
     return {"avg": math.nan, "min": math.nan, "max": math.nan}
 
