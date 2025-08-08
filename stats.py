@@ -1,7 +1,9 @@
+import math
+
 
 def calculateStats(numbers):
   if not numbers:
-    return {"avg": 0, "min": 0, "max": 0}
+    return {"avg": math.nan, "min": math.nan, "max": math.nan}
 
   avg = sum(numbers) / len(numbers)
   min_val = min(numbers)
